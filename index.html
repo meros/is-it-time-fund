@@ -32,5 +32,24 @@
             Nej!
         </div>
     </div>
+    <script>
+        var nejAlternativ = [
+            "Vi kan inte gå vidare med detta förslag.",
+            "Tyvärr passar det inte in i vår nuvarande strategi.",
+            "Det är inte i linje med våra övergripande mål.",
+            "Det är inte förenligt med vår företagskultur.",
+            "Vi behöver fokusera på andra prioriteringar just nu.",
+            "Vi måste avvisa detta förslag på grund av affärsmässiga skäl.",
+            "Vi ser ingen affärsmässig lönsamhet i detta.",
+            "Det är inte en optimal investering för oss just nu.",
+            "Vi behöver avstå från detta för att skydda vår konkurrenskraft.",
+            "Vi väljer att inte gå framåt med detta av strategiska skäl."
+        ];
+
+        var slumpatNej = nejAlternativ[Math.floor(Math.random() * nejAlternativ.length)];
+
+        var nejElement = document.querySelector(".nej-text");
+        nejElement.innerHTML = "Nej!" + "<br>" + slumpatNej;
+    </script>
 </body>
 </html>
