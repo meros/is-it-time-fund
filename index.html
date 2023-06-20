@@ -2,66 +2,84 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Är det dags att köpa något annat än index?</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Är det dags att köpa något annat än index?">
+  <meta property="og:description" content="Få svar på om det är dags att ändra din investeringsstrategi.">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="http://xn--rdetdagsattkpangotannatnindex-zpcxx17c.info/">
+  <meta property="og:type" content="website">
 
-        .bg {
-            background-color: #F5F7FA; /* light grey */
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  
+  <title>Är det dags att köpa något annat än index?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+    }
 
-        .nej-text {
-            font-size: 6em; /* Responsive font size */
-            color: #0d6efd; /* bootstrap blue */
-            font-family: 'Roboto', sans-serif; /* a common font for modern websites */
-            text-align: center; /* Center the text */
-        }
+    .bg {
+      background-color: #F5F7FA;
+      /* light grey */
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10%;
+    }
 
-        .nej-text span {
-            font-size: 0.4em; /* Smaller font size */
-            color: #6c757d; /* A less prominent color (bootstrap secondary) */
-            display: block; /* New line */
-        }
-    </style>
+    .nej-text {
+      font-size: 6em;
+      /* Responsive font size */
+      color: #0d6efd;
+      /* bootstrap blue */
+      font-family: 'Roboto', sans-serif;
+      /* a common font for modern websites */
+      text-align: center;
+      /* Center the text */
+    }
+
+    .nej-text span {
+      margin-top: 1em;
+      font-size: 0.4em;
+      /* Smaller font size */
+      color: #6c757d;
+      /* A less prominent color (bootstrap secondary) */
+      display: block;
+      /* New line */
+    }
+  </style>
 </head>
 
 <body>
-    <div class="bg">
-        <div class="nej-text">
-            Nej!
-            <span id="random-text"></span>
-        </div>
+  <div class="bg">
+    <div class="nej-text">
+      NEJ!
+      <span id="random-text"></span>
     </div>
-    <script>
-        var nejAlternativ = [
-    "Strategin uppvisar inte optimal allokeringsrationell effektivitet.",
-    "Detta tillvägagångssätt i kapitalallokering är suboptimalt ur ett risk-avkastningsperspektiv.",
-    "Investeringsstrategin manifesterar en brist på due diligence och portföljdiversifiering.",
-    "Strategin är inte i linje med bästa praxis inom kapitalförvaltning och riskhantering.",
-    "Detta investeringsbeslut karakteriseras av en avsaknad av djuplodande finansiell analys.",
-    "Investeringsstrategin uppvisar inte den strukturella robusthet som krävs för långsiktig avkastning.",
-    "Strategin reflekterar inte en holistisk syn på marknadens dynamik och risktollerans.",
-    "Investeringsplanen bär på signifikanta begränsningar i dess förmåga att generera hållbar avkastning.",
-    "Strategin avviker från industristandarder gällande diversifiering och riskmitigering.",
-    "Investeringsstrategin uppvisar en brist på synergi med övergripande finansiella målsättningar."
-        ];
-
-        var slumpatNej = nejAlternativ[Math.floor(Math.random() * nejAlternativ.length)];
-
-        var randomTextElement = document.getElementById("random-text");
-        randomTextElement.innerHTML = slumpatNej;
-    </script>
+  </div>
+  <script>
+    var nejAlternativ = [
+      "Strategin uppvisar inte optimal allokeringsrationell effektivitet.",
+      "Detta tillvägagångssätt i kapitalallokering är suboptimalt ur ett risk-avkastningsperspektiv.",
+      "Investeringsstrategin manifesterar en brist på due diligence och portföljdiversifiering.",
+      "Strategin är inte i linje med bästa praxis inom kapitalförvaltning och riskhantering.",
+      "Detta investeringsbeslut karakteriseras av en avsaknad av djuplodande finansiell analys.",
+      "Investeringsstrategin uppvisar inte den strukturella robusthet som krävs för långsiktig avkastning.",
+      "Strategin reflekterar inte en holistisk syn på marknadens dynamik och risktollerans.",
+      "Investeringsplanen bär på signifikanta begränsningar i dess förmåga att generera hållbar avkastning.",
+      "Strategin avviker från industristandarder gällande diversifiering och riskmitigering.",
+      "Investeringsstrategin uppvisar en brist på synergi med övergripande finansiella målsättningar."
+    ];
+    var slumpatNej = nejAlternativ[Math.floor(Math.random() * nejAlternativ.length)];
+    var randomTextElement = document.getElementById("random-text");
+    randomTextElement.innerHTML = slumpatNej;
+  </script>
 </body>
 
 </html>
