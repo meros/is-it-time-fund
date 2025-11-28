@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
   <!-- Google tag (gtag.js) -->
@@ -13,6 +13,8 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Få svar på om det är dags att ändra din investeringsstrategi från indexfonder.">
+  <meta name="theme-color" content="#0d6efd">
 
   <!-- Open Graph Tags -->
   <meta property="og:title" content="Är det dags att köpa något annat än index?">
@@ -22,80 +24,229 @@
   <meta property="og:type" content="website">
 
   <title>Är det dags att köpa något annat än index?</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body,
     html {
       height: 100%;
       margin: 0;
-      background-color: #F5F7FA;
+      background: linear-gradient(135deg, #F5F7FA 0%, #E4E9F2 100%);
+      overflow-x: hidden;
     }
 
     .bg {
-      height: 100%;
+      min-height: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      padding-bottom: 80px;
+    }
+
+    .question {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2em;
+      color: #6c757d;
+      margin-bottom: 0.5em;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInDown 0.6s ease-out forwards;
+      padding: 0 1em;
     }
 
     .nej-text {
       margin-left: 1em;
       margin-right: 1em;
-      font-size: 6em;
-      /* Responsive font size */
+      font-size: 8em;
+      font-weight: 900;
       color: #0d6efd;
-      /* bootstrap blue */
       font-family: 'Roboto', sans-serif;
-      /* a common font for modern websites */
       text-align: center;
-      /* Center the text */
+      cursor: pointer;
+      user-select: none;
+      opacity: 0;
+      animation: bounceIn 0.8s ease-out 0.3s forwards;
+      transition: transform 0.2s ease, text-shadow 0.2s ease;
+      text-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
     }
 
-    .nej-text span {
+    .nej-text:hover {
+      transform: scale(1.05);
+      text-shadow: 0 6px 25px rgba(13, 110, 253, 0.4);
+    }
+
+    .nej-text:active {
+      transform: scale(0.95);
+    }
+
+    .explanation {
       margin-top: 1em;
-      font-size: 0.4em;
-      /* Smaller font size */
+      font-size: 1.1em;
+      max-width: 600px;
       color: #6c757d;
-      /* A less prominent color (bootstrap secondary) */
-      display: block;
-      /* New line */
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      line-height: 1.6;
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.8s forwards;
+      padding: 0 1.5em;
+    }
+
+    .hint {
+      margin-top: 2em;
+      font-size: 0.9em;
+      color: #adb5bd;
+      font-family: 'Roboto', sans-serif;
+      opacity: 0;
+      animation: fadeIn 0.6s ease-out 1.2s forwards;
+    }
+
+    .counter {
+      margin-top: 1.5em;
+      font-size: 0.85em;
+      color: #adb5bd;
+      font-family: 'Roboto', sans-serif;
+      opacity: 0;
+      animation: fadeIn 0.6s ease-out 1.4s forwards;
+    }
+
+    /* Confetti container */
+    .confetti-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
     }
 
     /* Footer styling */
     footer {
       text-align: center;
       padding: 1em 0;
-      background-color: #F5F7FA;
+      background: transparent;
       font-family: 'Roboto', sans-serif;
       color: #6c757d;
-      font-size: 1em;
+      font-size: 0.9em;
       position: fixed;
       bottom: 0;
       width: 100%;
     }
 
     footer a {
-      color: #0d6efd; /* Link color */
+      color: #0d6efd;
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     footer a:hover {
+      color: #0a58ca;
       text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+      50% {
+        transform: scale(1.05);
+      }
+      70% {
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(720deg);
+      }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .nej-text {
+        font-size: 5em;
+      }
+      .question {
+        font-size: 1em;
+      }
+      .explanation {
+        font-size: 1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nej-text {
+        font-size: 3.5em;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div class="confetti-container" id="confetti-container"></div>
+
   <div class="bg">
-    <div class="nej-text">
-      NEJ!
-      <span id="random-text"></span>
-    </div>
+    <div class="question">Är det dags att köpa något annat än index?</div>
+    <div class="nej-text" id="nej-text" title="Klicka för konfetti!">NEJ!</div>
+    <div class="explanation" id="random-text"></div>
+    <div class="hint">👆 Klicka på svaret för en överraskning!</div>
+    <div class="counter" id="counter"></div>
   </div>
 
   <!-- Footer Section -->
   <footer>
-    <p>A Bracket Racket production - <a href="https://bracket-racket.se" target="_blank">bracket-racket.se</a></p>
+    <p>A Bracket Racket production – <a href="https://bracket-racket.se" target="_blank" rel="noopener noreferrer">bracket-racket.se</a></p>
   </footer>
 
   <script>
@@ -109,11 +260,75 @@
       "Strategin reflekterar inte en holistisk syn på marknadens dynamik och risktollerans.",
       "Investeringsplanen bär på signifikanta begränsningar i dess förmåga att generera hållbar avkastning.",
       "Strategin avviker från industristandarder gällande diversifiering och riskmitigering.",
-      "Investeringsstrategin uppvisar en brist på synergi med övergripande finansiella målsättningar."
+      "Investeringsstrategin uppvisar en brist på synergi med övergripande finansiella målsättningar.",
+      "Aktiv förvaltning tenderar att underperforma indexfonder efter avgifter.",
+      "Historisk data stödjer konsekvent passiv indexering över aktiv stockpicking.",
+      "Marknadseffektivitet gör det extremt svårt att systematiskt överträffa index.",
+      "Diversifieringsfördelarna med breda indexfonder är svårslagna.",
+      "Avgiftsarbitrage favoriserar låg-kostnadsindexfonder på lång sikt.",
+      "Beteendeekonomisk forskning visar att timing av marknaden sällan lyckas.",
+      "Compound interest fungerar bäst med låga avgifter och bred exponering.",
+      "De flesta professionella förvaltare misslyckas med att slå index över tid.",
+      "KISS-principen (Keep It Simple, Stupid) gäller även för investeringar.",
+      "Warren Buffett rekommenderar indexfonder för de flesta investerare."
     ];
+
     var slumpatNej = nejAlternativ[Math.floor(Math.random() * nejAlternativ.length)];
     var randomTextElement = document.getElementById("random-text");
-    randomTextElement.innerHTML = slumpatNej;
+    randomTextElement.textContent = slumpatNej;
+
+    // Click counter
+    var clickCount = 0;
+    var counterElement = document.getElementById("counter");
+
+    function updateCounter() {
+      if (clickCount === 1) {
+        counterElement.textContent = "Du har bekräftat detta " + clickCount + " gång! 🎉";
+      } else if (clickCount > 1) {
+        counterElement.textContent = "Du har bekräftat detta " + clickCount + " gånger! 🎉";
+      }
+    }
+
+    // Confetti effect
+    function createConfetti() {
+      var container = document.getElementById("confetti-container");
+      var colors = ["#0d6efd", "#198754", "#ffc107", "#dc3545", "#6f42c1", "#20c997"];
+      var shapes = ["■", "●", "▲", "★"];
+
+      for (var i = 0; i < 50; i++) {
+        var confetti = document.createElement("div");
+        confetti.className = "confetti";
+        confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+        confetti.style.left = Math.random() * 100 + "%";
+        confetti.style.top = "-20px";
+        confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.fontSize = (Math.random() * 15 + 10) + "px";
+        confetti.style.animation = "confettiFall " + (Math.random() * 2 + 1.5) + "s linear forwards";
+        confetti.style.animationDelay = (Math.random() * 0.5) + "s";
+        container.appendChild(confetti);
+
+        // Remove confetti after animation
+        setTimeout(function() {
+          confetti.remove();
+        }, 4000);
+      }
+    }
+
+    // Click handler
+    var nejText = document.getElementById("nej-text");
+    nejText.addEventListener("click", function() {
+      clickCount++;
+      updateCounter();
+      createConfetti();
+
+      // Change the explanation text on click
+      var currentIndex = nejAlternativ.indexOf(randomTextElement.textContent);
+      var newIndex = Math.floor(Math.random() * (nejAlternativ.length - 1));
+      if (newIndex >= currentIndex && currentIndex !== -1) {
+        newIndex++;
+      }
+      randomTextElement.textContent = nejAlternativ[newIndex];
+    });
   </script>
 </body>
 
