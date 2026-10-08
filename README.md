@@ -49,6 +49,8 @@ Index funds offer several advantages for most investors:
 
 Feel free to use this project as inspiration for your own humorous finance websites!
 
+0BSD, see [LICENSE](LICENSE).
+
 ---
 
 *A [Bracket Racket](https://bracket-racket.se) production* 🎾
